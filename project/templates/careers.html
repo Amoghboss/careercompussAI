@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers | CareerCompass AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="topbar glass">
+    <a href="/" class="brand">CareerCompass AI</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+    <nav id="navMenu" class="nav-links">
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      <span id="userBadge" class="user-badge hidden"></span>
+      <a href="/login" class="login-link">Login</a>
+      <a href="#" id="logoutBtn" class="hidden">Logout</a>
+    </nav>
+  </header>
+
+  <main class="section careers-layout">
+    <p class="view-tag reveal">Career Discovery</p>
+    <h1 class="reveal">Explore Careers</h1>
+    <input id="careerSearch" class="search-input reveal" type="text" placeholder="Search by title or skill (e.g. Python, Designer)" />
+    <div id="careerCards" class="grid-3 careers-grid reveal"></div>
+  </main>
+
+  <div id="careerModal" class="modal hidden">
+    <div class="modal-content glass">
+      <button id="closeModal" class="close-btn">x</button>
+      <h2 id="modalTitle"></h2>
+      <p><strong>Salary:</strong> <span id="modalSalary"></span></p>
+      <p><strong>Required Skills:</strong></p>
+      <ul id="modalSkills"></ul>
+      <p><strong>Career Roadmap:</strong></p>
+      <ol id="modalRoadmap"></ol>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

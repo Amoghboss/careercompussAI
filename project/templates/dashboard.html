@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | CareerCompass AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="topbar glass">
+    <a href="/" class="brand">CareerCompass AI</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+    <nav id="navMenu" class="nav-links">
+      <a href="/">Home</a>
+      <a href="/careers-page">Careers</a>
+      <span id="userBadge" class="user-badge hidden"></span>
+      <a href="/login" class="login-link">Login</a>
+      <a href="#" id="logoutBtn" class="hidden">Logout</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <section class="panel glass reveal analyzer-panel">
+      <p class="view-tag">Dashboard Workspace</p>
+      <h1>Skill Analyzer</h1>
+      <label for="skillsInput">Enter skills (comma-separated)</label>
+      <input id="skillsInput" type="text" placeholder="Python, SQL, Machine Learning" />
+      <div class="action-row">
+        <button id="analyzeBtn" class="btn-primary">Analyze Skills</button>
+        <button id="quizBtn" class="btn-secondary">Quick Quiz Suggestion</button>
+        <button id="historyBtn" class="btn-secondary">Load History</button>
+        <button id="savedBtn" class="btn-secondary">Saved Careers</button>
+        <button id="clearResultsBtn" class="btn-secondary">Clear Results</button>
+      </div>
+    </section>
+
+    <section class="panel glass reveal upload-panel">
+      <h2>Resume Upload</h2>
+      <input id="resumeInput" type="file" accept="application/pdf" />
+      <button id="uploadBtn" class="btn-secondary">Upload Resume</button>
+    </section>
+
+    <section class="results reveal stats-panel">
+      <h2>Your Stats</h2>
+      <div id="statsGrid" class="grid-3"></div>
+    </section>
+
+    <section class="results reveal output-panel">
+      <h2>Results</h2>
+      <div id="resultsContainer" class="grid-3"></div>
+    </section>
+
+    <section class="panel glass reveal toolkit-panel">
+      <h2>Career Toolkit</h2>
+      <div class="tool-grid">
+        <input id="toolRole" type="text" placeholder="Target role (e.g., Data Scientist)" />
+        <input id="toolLanguage" type="text" placeholder="Language filter (e.g., Python, Java, English, Hindi)" />
+        <input id="toolCompany" type="text" placeholder="Company (for cover letter)" />
+        <input id="toolPortfolioUrl" type="text" placeholder="Portfolio/GitHub URL" />
+        <input id="toolReminderText" type="text" placeholder="Reminder text (e.g., Apply to 3 jobs)" />
+        <input id="toolReminderDue" type="date" />
+        <textarea id="toolResumeContent" rows="4" placeholder="Resume content for Save Version / Export PDF"></textarea>
+      </div>
+      <div class="action-row">
+        <button id="toolJobsBtn" class="btn-secondary">Load Jobs</button>
+        <button id="toolAppsBtn" class="btn-secondary">My Applications</button>
+        <button id="toolCoverBtn" class="btn-secondary">Generate Cover Letter</button>
+        <button id="toolInterviewBtn" class="btn-secondary">Mock Interview</button>
+        <button id="toolRoadmapBtn" class="btn-secondary">Skill Roadmap</button>
+        <button id="toolPortfolioBtn" class="btn-secondary">Portfolio Analyzer</button>
+        <button id="toolVersionsBtn" class="btn-secondary">Resume Versions</button>
+        <button id="toolSaveVersionBtn" class="btn-secondary">Save Resume Version</button>
+        <button id="toolExportPdfBtn" class="btn-secondary">Export Resume PDF</button>
+        <button id="toolAdminBtn" class="btn-secondary">Admin Analytics</button>
+        <button id="toolReminderBtn" class="btn-secondary">Add Reminder</button>
+        <button id="toolReminderListBtn" class="btn-secondary">My Reminders</button>
+      </div>
+      <div id="toolOutput" class="grid-3"></div>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

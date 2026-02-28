@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerCompass AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header class="topbar glass">
+    <a href="/" class="brand">CareerCompass AI</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+    <nav id="navMenu" class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#popular-careers">Careers</a>
+      <a href="#resume-builder">Resume Builder</a>
+      <span id="userBadge" class="user-badge hidden"></span>
+      <a href="/login" class="login-link">Login</a>
+      <a href="#" id="logoutBtn" class="hidden">Logout</a>
+      <a href="/dashboard" class="btn-inline">Dashboard</a>
+    </nav>
+  </header>
+
+  <section class="trend-strip reveal">
+    <span>Career Match Engine</span>
+    <span>Resume AI Parsing</span>
+    <span>Real-Time Career Trends</span>
+    <span>Skill Gap Intelligence</span>
+    <span>Career Match Engine</span>
+    <span>Resume AI Parsing</span>
+  </section>
+
+  <main>
+    <section class="hero reveal">
+      <div>
+        <p class="eyebrow">AI-Powered Career Platform</p>
+        <h1>Navigate Your Future with AI</h1>
+        <p>Discover the best career path based on your skills, resume, and ambitions.</p>
+        <div class="action-row">
+          <a href="/login" class="btn-primary">Get Started</a>
+          <a href="#resume-builder" class="btn-secondary">Build Resume</a>
+        </div>
+      </div>
+      <div class="hero-card glass">
+        <h3>Smart Suggestions</h3>
+        <p>Upload your resume, analyze skills, and explore high-growth roles instantly.</p>
+      </div>
+    </section>
+
+    <section id="features" class="section reveal">
+      <h2>Features</h2>
+      <p class="section-subtext">Everything you need to move from uncertainty to a clear career direction.</p>
+      <div class="grid-3 feature-grid">
+        <article class="card glass"><h3>AI Skill Match</h3><p>Get role recommendations from your skill set.</p></article>
+        <article class="card glass"><h3>Resume Insights</h3><p>Upload your PDF and extract key skills.</p></article>
+        <article class="card glass"><h3>Career Roadmaps</h3><p>Understand what to learn next for target roles.</p></article>
+        <article class="card glass"><h3>Missing Skills Finder</h3><p>See exact skill gaps for your target role.</p></article>
+        <article class="card glass">
+          <h3>Smart Jobs Portal</h3>
+          <p>Browse more jobs with language filters and open Tool #1 instantly.</p>
+          <a class="btn-inline" href="/dashboard?tool=1">Open Smart Jobs Portal</a>
+        </article>
+        <article class="card glass"><h3>Actionable Learning Path</h3><p>Get practical next steps tailored to your profile.</p></article>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section reveal">
+      <h2>How it works</h2>
+      <p class="section-subtext">A simple 5-step workflow from skills input to career roadmap.</p>
+      <div class="steps">
+        <div class="step card glass">
+          <h3>1. Create Your Account</h3>
+          <p>Sign in to start your personalized career journey.</p>
+        </div>
+        <div class="step card glass">
+          <h3>2. Add Skills</h3>
+          <p>Enter your skills manually to get an instant match.</p>
+        </div>
+        <div class="step card glass">
+          <h3>3. Upload Resume</h3>
+          <p>Submit a PDF resume and auto-extract career-ready skills.</p>
+        </div>
+        <div class="step card glass">
+          <h3>4. Analyze Results</h3>
+          <p>Review match score, suggested role, and missing skills.</p>
+        </div>
+        <div class="step card glass">
+          <h3>5. Explore Careers</h3>
+          <p>Open career cards to view salary, required skills, and roadmap.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="top-10-tools" class="section reveal">
+      <h2>Top 10 Career Tools</h2>
+      <p class="section-subtext">All advanced features are listed here and available in your dashboard.</p>
+      <div class="grid-3 feature-grid">
+        <article class="card glass"><h3>1. Jobs Feed</h3><p>Browse active job roles with company and apply links.</p></article>
+        <article class="card glass"><h3>2. Applications Tracker</h3><p>Save and monitor your job applications and status.</p></article>
+        <article class="card glass"><h3>3. Cover Letter Generator</h3><p>Create role-specific cover letters instantly.</p></article>
+        <article class="card glass"><h3>4. Mock Interview</h3><p>Practice interview questions and get instant feedback scores.</p></article>
+        <article class="card glass"><h3>5. Skill Roadmap</h3><p>Generate a weekly roadmap for missing skills.</p></article>
+        <article class="card glass"><h3>6. Portfolio Analyzer</h3><p>Get quality feedback and score for your portfolio URL.</p></article>
+        <article class="card glass"><h3>7. Resume Versions</h3><p>Save multiple resume versions by target role.</p></article>
+        <article class="card glass"><h3>8. Resume PDF Export</h3><p>Export your built resume to PDF format.</p></article>
+        <article class="card glass"><h3>9. Admin Analytics</h3><p>View overall platform usage and top career trends.</p></article>
+        <article class="card glass"><h3>10. Reminders</h3><p>Create personal reminders for career tasks and deadlines.</p></article>
+      </div>
+      <div class="chip-list">
+        <a class="chip" href="/dashboard?tool=1">Open Dashboard Tools (Start with Tool #1)</a>
+      </div>
+    </section>
+
+    <section id="popular-careers" class="section reveal">
+      <h2>Popular careers</h2>
+      <p class="section-subtext">Updated from the backend career dataset.</p>
+      <div id="popularCareerGrid" class="grid-3"></div>
+      <div class="chip-list">
+        <a class="chip" href="/careers-page">View All Career Paths</a>
+      </div>
+    </section>
+
+    <section id="jobs-feed" class="section reveal">
+      <h2>Jobs Feed</h2>
+      <p class="section-subtext">Browse current jobs and jump to dashboard to track applications.</p>
+      <div id="jobsPreviewGrid" class="grid-3"></div>
+      <div class="chip-list">
+        <a class="chip" href="/dashboard?tool=1">Open Full Jobs Feed</a>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2>Platform Snapshot</h2>
+      <div id="publicStatsGrid" class="grid-3"></div>
+    </section>
+
+    <section id="resume-builder" class="section reveal">
+      <h2>Resume Builder</h2>
+      <p class="section-subtext">Build a job-ready resume with ATS score, keyword match, and improvement tips.</p>
+      <div class="resume-builder-grid">
+        <article class="card glass">
+          <div class="form">
+            <input id="rbName" type="text" placeholder="Full Name" />
+            <input id="rbEmail" type="email" placeholder="Email" />
+            <input id="rbPhone" type="text" placeholder="Phone" />
+            <input id="rbLocation" type="text" placeholder="Location (City, Country)" />
+            <input id="rbLinkedin" type="text" placeholder="LinkedIn URL" />
+            <input id="rbGithub" type="text" placeholder="GitHub/Portfolio URL" />
+            <div class="template-row">
+              <select id="rbTemplate">
+                <option value="">Choose Resume Template</option>
+                <option value="fresher">Fresher (Entry-Level)</option>
+                <option value="software">Software Engineer</option>
+                <option value="data">Data Scientist</option>
+                <option value="designer">UI/UX Designer</option>
+              </select>
+              <button id="rbApplyTemplateBtn" class="btn-secondary" type="button">Apply Template</button>
+            </div>
+            <div class="template-row">
+              <select id="rbBgTheme">
+                <option value="classic">Background: Classic</option>
+                <option value="sky">Background: Sky Glass</option>
+                <option value="mint">Background: Mint Glass</option>
+                <option value="sunset">Background: Sunset Glass</option>
+              </select>
+              <button id="rbApplyBgBtn" class="btn-secondary" type="button">Apply Background</button>
+            </div>
+            <select id="rbRole"></select>
+            <textarea id="rbSummary" rows="4" placeholder="Professional Summary"></textarea>
+            <textarea id="rbSkills" rows="3" placeholder="Skills (comma-separated)"></textarea>
+            <textarea id="rbExperience" rows="5" placeholder="Experience (one line per point)"></textarea>
+            <textarea id="rbProjects" rows="4" placeholder="Projects (one line per project)"></textarea>
+            <textarea id="rbEducation" rows="3" placeholder="Education (degree, institute, year)"></textarea>
+            <div class="action-row">
+              <button id="rbPreviewBtn" class="btn-primary" type="button">Generate Job-Ready Resume</button>
+              <button id="rbScoreBtn" class="btn-secondary" type="button">Check ATS Score</button>
+              <button id="rbDownloadBtn" class="btn-secondary" type="button">Download Resume</button>
+            </div>
+          </div>
+        </article>
+        <article class="card glass">
+          <p id="rbScore" class="score-pill">ATS Score: --</p>
+          <ul id="rbTips" class="tips-list"></ul>
+          <h3>Preview</h3>
+          <div id="rbPreview" class="resume-preview resume-shell">Your resume preview will appear here.</div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
